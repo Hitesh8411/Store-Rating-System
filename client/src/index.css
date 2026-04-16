@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-ps-blue: #0070cc;
+  --color-ps-cyan: #1eaedb;
+  --color-ps-black: #000000;
+  --color-ps-orange: #d53b00;
+  --color-muted: #6b6b6b;
+  --color-ps-grey: #cccccc;
+  --color-danger: #c81b3a;
+
+  --color-foreground: #1f1f1f;
+  --color-muted-foreground: #6b6b6b;
+  --color-surface: #f5f7fa;
+  --color-accent: #0070cc;
+  --color-accent-light: #1eaedb;
+  --color-success: #1db954;
+
+  --font-sst: "SST", "Inter", system-ui, sans-serif;
+  --font-display: "SST", "Space Grotesk", system-ui, sans-serif;
+
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 19px;
+  --radius-xl: 24px;
+
+  --shadow-feather: 0 5px 9px 0 rgba(0, 0, 0, 0.06);
+  --shadow-grid: 0 5px 9px 0 rgba(0, 0, 0, 0.08);
+  --shadow-hero: 0 5px 9px 0 rgba(0, 0, 0, 0.8);
+}
+
+
+
+body {
+  background-color: #ffffff;
+  color: #1f1f1f;
+  font-family: var(--font-sst);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Base Styles */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 { font-size: 54px; }
+h2 { font-size: 44px; }
+h3 { font-size: 35px; }
+h4 { font-size: 28px; }
+
+/* PlayStation Components */
+.btn-ps-primary {
+  @apply bg-ps-blue text-white inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full transition-all duration-300;
+  font-size: 18px;
+  font-weight: 500;
+  border: 2px solid transparent;
+}
+
+.btn-ps-primary:hover {
+  @apply bg-ps-cyan scale-110 border-white;
+  box-shadow: 0 0 0 3px #0070cc;
+}
+
+.btn-ps-commerce {
+  @apply bg-ps-orange text-white inline-flex items-center justify-center gap-2 px-10 py-3 rounded-full transition-all duration-300;
+  font-size: 18px;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+.btn-ps-commerce:hover {
+  @apply bg-ps-cyan scale-110 border-white;
+  box-shadow: 0 0 0 3px #1eaedb;
+}
+
+.ps-input {
+  @apply bg-white border border-[#cccccc] rounded-xs px-4 py-3 w-full transition-all duration-200 outline-none;
+  color: #1f1f1f;
+}
+
+.ps-input-dark {
+  @apply bg-black/40 border border-white/10 rounded-xs px-4 py-3 w-full transition-all duration-200 outline-none;
+  color: #ffffff;
+}
+
+.ps-input-dark::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.ps-input-icon {
+  padding-left: 3.5rem !important; /* Standard 56px to clear icon (16px) + gap */
+}
+
+@utility input-icon {
+  padding-left: 3.5rem !important;
+}
+
+.ps-input:focus, .ps-input-dark:focus {
+  @apply border-ps-blue;
+  box-shadow: 0 0 0 2px rgba(0, 112, 204, 0.2);
+}
+
+.input-dark {
+  @apply bg-white/5 border border-white/10 rounded-xs px-4 py-3 w-full transition-all duration-200 outline-none text-white;
+}
+
+.input-dark::placeholder {
+  @apply text-white/30;
+}
+
+.input-dark:focus {
+  @apply border-ps-blue/50 ring-2 ring-ps-blue/20;
+}
+
+.ps-section-dark {
+  @apply bg-ps-black text-white;
+  background-image: linear-gradient(to bottom, #121314, #000000);
+}
+
+.ps-section-light {
+  @apply bg-white;
+  color: #1f1f1f;
+  background-image: linear-gradient(to bottom, #ffffff, #f5f7fa);
+}
+
+.ps-card {
+  @apply bg-white rounded-md shadow-feather p-6 transition-all duration-300 border border-transparent;
+}
+
+.ps-card-dark {
+  @apply bg-white/5 rounded-xl p-8 backdrop-blur-sm border border-white/5;
+}
+
+.ps-card-hero {
+  @apply bg-ps-black border border-white/10 rounded-xl shadow-hero p-8;
+}
+
+/* Custom Animation Utility for PlayStation (used in some places) */
+@utility animate-fade-up {
+  animation: fade-up 0.4s ease forwards;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility glass-strong {
+  @apply bg-[#1a1b1c]/90 backdrop-blur-xl border border-white/10;
+}
+
+@utility btn-primary {
+  @apply bg-ps-blue text-white rounded-md transition-all hover:bg-ps-cyan disabled:opacity-50;
+}
+
+@utility btn-ghost {
+  @apply text-muted-foreground hover:bg-white/5 transition-colors;
+}
